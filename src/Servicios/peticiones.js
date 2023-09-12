@@ -28,8 +28,10 @@ export const obtenerPeliculas = async () => {
 import { useEffect, useState } from 'react'
 
 const useObtenerPeliculas = () => {
+    // Estado para almacenar las películas obtenidas de la API
     const [peliculas, setPeliculas] = useState([]);
 
+    // Efecto que se ejecuta cuando el componente se monta (una sola vez)
     useEffect(() =>{
     const obtenerPeliculas = async () => {
         const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
@@ -47,9 +49,9 @@ const useObtenerPeliculas = () => {
         // Realiza una solicitud HTTP GET a la URL de la API con las opciones especificadas
         const response = await fetch(url, options); //fetch consume la api con la url y las opciones
         const data = await response.json();         // Convierte la respuesta en un objeto JSON
-        setPeliculas(data.results)
-        /* console.log(data, 20); */                      // Muestra los datos en la consola de la busqueda realizada con la respuesta en json
-        //setPeliculas(data.results);               // Establece el estado "peliculas" con los resultados obtenidos de la API
+        setPeliculas(data.results)                  // Establece el estado "peliculas" con los resultados obtenidos de la API
+        /* console.log(data, 20); */                // Muestra los datos en la consola de la busqueda realizada con la respuesta en json
+        //setPeliculas(data.results);               
         /* return data.results; */
     } catch (error) {                               // Devuelte la promesa error en caso de no cumplirse la solicitud
         console.error('Error:', error); 
