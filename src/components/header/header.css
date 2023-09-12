@@ -1,7 +1,7 @@
 .containerheader {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     background-color: #BCA5FF;
     color: #fff;
@@ -31,9 +31,9 @@
     border-radius: 4px;
     outline: none;
     background-color: #BCA5FF;
-    color: #0d0032;
-    border-radius: 5%;
-    margin-left: -40px; /* Ajusta el margen entre el nombre y el buscador según sea necesario */
+    color: #ededf0;
+    border-radius: 5%; /* Ajusta el margen entre el nombre y el buscador según sea necesario */
+    font-weight: bold;
 }
 
 .containerNavbar {

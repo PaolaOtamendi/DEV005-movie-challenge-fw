@@ -15,11 +15,11 @@ const Home = () => {
 
     return(
         
-        <div className='container-movies flex flex-wrap justify-center items-center mt-20 ml-30'>
+        <div className='container-movies flex flex-wrap justify-evenly items-center mt-20'>
         {
             peliculas.map(pelicula => (
-            <div key={pelicula.id}>
-                <div className="w-3/4">
+            <div key={pelicula.id} className="max-w-xs mx-2 my-4">
+                <div className="w-3/4 w-full">
                 <img src={`http://image.tmdb.org/t/p/w300/${pelicula.poster_path}`} alt={''} />
                 </div>
                 <div className='container-name'>

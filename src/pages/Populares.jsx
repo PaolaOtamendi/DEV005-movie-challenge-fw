@@ -9,11 +9,11 @@ const Populares = () => {
     console.log(generos, 45)
 
     return(
-        <div className='container-movies flex flex-wrap justify-center items-center mt-20 ml-30'>
+        <div className='container-movies flex flex-wrap justify-evenly items-center mt-20'>
         {
         populares.map(popular =>(
-            <div key={popular.id}>
-                <div className="w-3/4">
+            <div key={popular.id} className="max-w-xs mx-2 my-4">
+                <div className="w-3/4 w-full">
                 <img src={`http://image.tmdb.org/t/p/w300/${popular.poster_path}`} alt={''} />
                 </div>
                 <div className='container-name'>

@@ -10,11 +10,11 @@ const Estrenos = () => {
     console.log(estrenos, 65);
 
     return(
-        <div className='container-movies flex flex-wrap justify-center items-center mt-20 ml-30'>
+        <div className='container-movies flex flex-wrap justify-evenly items-center mt-20'>
         {
         estrenos.map(estreno =>(
-            <div key={estreno.id}>
-                <div className='w-3/4'>
+            <div key={estreno.id} className="max-w-xs mx-2 my-4">
+                <div className="w-3/4 w-full">
                 <img src={`http://image.tmdb.org/t/p/w300/${estreno.poster_path}`} alt={''} />
                 </div>
                 <div className='container-name'>
