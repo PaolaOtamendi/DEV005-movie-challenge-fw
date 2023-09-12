@@ -1,24 +1,26 @@
 import { Link } from "react-router-dom";
+import "./header.css"
 
 const Header = () => {
     return(
         <div className="containerheader">
             <div className="logo">
-                <h3>LOGO</h3>
+                <img src={""} alt={""}></img>
             </div>
             <div className="nameHeader">
                 <p>CINEMA PLANET</p>
             </div>
+            <div className="containerNavbar">
+                <Link to='/Home' className="home">Home</Link>
+                <Link to='/Genero' className="genero">Genero</Link>
+                <Link to='/Populares' className="populares">Populares</Link>
+                <Link to='/Estrenos' className="estrenos">Estrenos</Link>
+            </div>
             <div className="search">
+                <p>Busca tu pelicula</p>
                 <input className="searchname"
                 placeholder="Nombre de pelicula"
                 ></input>
-            </div>
-            <div className="containerNavbar">
-                <Link to='/Home'>Home</Link>
-                <Link to='/Genero'>Genero</Link>
-                <Link to='/Populares'>Populares</Link>
-                <Link to='/Estrenos'>Estrenos</Link>
             </div>
         </div>
     );

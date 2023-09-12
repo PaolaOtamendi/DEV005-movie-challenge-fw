@@ -35,7 +35,7 @@ const useObtenerGeneros = () => {
 
     /* console.log(generosMapped); */
 
-    return generosMapped;
+    return generosMapped; // retornamos la data de la respuesta obtenida
 };
 
 export default useObtenerGeneros;

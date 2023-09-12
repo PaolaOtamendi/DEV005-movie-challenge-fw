@@ -1,38 +1,29 @@
 import React from 'react';
-/* import { useEffect, useState } from 'react' */
 import useObtenerPeliculas from '../../Servicios/peticiones';
 import useObtenerGeneros from '../../Servicios/generos';
 
 
 
+
 const Home = () => {
-    // Estado para almacenar las películas obtenidas de la API
-    /* const [peliculas, setPeliculas] = useState([]); */
-    /* const [generos, setGeneros] = useState([]); */
     const peliculas = useObtenerPeliculas();
+    console.log(peliculas, 35);
 
     const generos = useObtenerGeneros();
     console.log(generos, 45);
 
-    // Efecto que se ejecuta cuando el componente se monta (una sola vez)
-    /* useEffect(() => {
-    obtenerPeliculas() // Llama la funcion obtenerPeliculas cuando el componente se monta
-    .then(results => setPeliculas(results))
-    .catch(error => console.error('Error', error));
-    }, []); */
-
 
     return(
-        <div>
-        <div className='parrafo1'>
+        
+        <div className='container-movies flex flex-wrap justify-center items-center mt-20 ml-30'>
         {
             peliculas.map(pelicula => (
             <div key={pelicula.id}>
-                <div className='container'>
+                <div className="w-3/4">
                 <img src={`http://image.tmdb.org/t/p/w300/${pelicula.poster_path}`} alt={''} />
                 </div>
-                <div className='container-data'>
-                <p className='parrafo'>
+                <div className='container-name'>
+                <p className='font-sans'>
                 {pelicula.title}
                 </p>
                 </div>
@@ -46,21 +37,26 @@ const Home = () => {
                 Generos: {pelicula.genre_ids}
                 </p>  
                 </div> */}
-                <div className='container-genero'>
+                {/* <div className='container-genero'>
                 <p className='parrafo'>
                 {generos[pelicula.genre_ids[0]]}
                 </p>
-                </div>
-                <div className='container-year'>
+                </div> */}
+                <div className='container-average'>
                 <p className='parrafo'>
-                {pelicula.vote_average} ⭐
+                {(pelicula.vote_average).toFixed(0)} ⭐
                 </p>
+                </div>
+                <div className='container-play'>
+                <button>
+                Ver ▶
+                </button>
                 </div>
             </div>  
             ))
         }
         </div>
-        </div>
+        
     )
 }
 

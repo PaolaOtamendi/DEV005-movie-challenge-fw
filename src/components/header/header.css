@@ -1,0 +1,86 @@
+.containerheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #BCA5FF;
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nameHeader {
+    font-size: 30px;
+    color: #FFC907;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    margin-left: -20%;
+}
+
+.search {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    background-color: #BCA5FF;
+    color: #0d0032;
+    border-radius: 5%;
+    margin-left: -40px; /* Ajusta el margen entre el nombre y el buscador según sea necesario */
+}
+
+.containerNavbar {
+    display: flex;
+    flex-direction: row; /* Cambia la dirección a columna */
+    justify-content: space-between;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px; /* Añade margen superior para separar de los elementos anteriores */
+}
+
+.searchname{
+    margin-right: 0px;
+}
+
+.home{
+    margin: 2%;
+    padding: 4%;
+    color: rgb(236, 239, 239);
+    background-color: #6650A5;
+    border-radius: 5%;
+    font-weight: bold;
+}
+
+.genero{
+    margin: 2%;
+    padding: 4%;
+    color: rgb(236, 239, 239);
+    background-color: #6650A5;
+    border-radius: 5%;
+    font-weight: bold;
+}
+
+.populares{
+    margin: 2%;
+    padding: 4%;
+    color: rgb(236, 239, 239);
+    background-color: #6650A5;
+    border-radius: 5%;
+    font-weight: bold;
+}
+
+.estrenos{
+    margin: 2%;
+    padding: 4%;
+    color: rgb(236, 239, 239);
+    background-color: #6650A5;
+    border-radius: 5%;
+    font-weight: bold;
+}
