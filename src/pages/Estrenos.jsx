@@ -43,7 +43,13 @@ const Estrenos = () => {
                 </p>
                 </div>
                 <div className='container-play'>
-                <button>
+                <button className=" 
+                bg-green-400 
+                text-black font-bold 
+                px-4 py-2 
+                border border-green-700 
+                hover:bg-blue-700 
+                focus:bg-blue-700">
                 Ver ▶
                 </button>
                 </div>
