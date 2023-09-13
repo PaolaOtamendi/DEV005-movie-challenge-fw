@@ -6,7 +6,6 @@ import Estrenos from "../pages/Estrenos"
 import Genero from "../pages/Genero"
 import Populares from "../pages/Populares"
 
-
 const AppRouter = () => {
     return(
         <>

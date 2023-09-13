@@ -1,12 +1,23 @@
 import useObtenerPopulares from "../Servicios/populares";
-import useObtenerGeneros from "../Servicios/generos";
+/* import useObtenerGeneros from "../Servicios/generos"; */
+import MovieModal from "../components/Movies/Pelicula";
+import { useState } from 'react';
+
 
 const Populares = () => {
+    /* const generos = useObtenerGeneros();
+    console.log(generos, 45) */
+
     const populares = useObtenerPopulares();
     console.log(populares, 55);
 
-    const generos = useObtenerGeneros();
-    console.log(generos, 45)
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+    const handleVerClick = (popular) => {
+        setSelectedMovie(popular); // Establecer la película seleccionada
+        setModalOpen(true); // Abrir el modal
+    };
 
     return(
         <div className='container-movies flex flex-wrap justify-evenly items-center mt-20'>
@@ -26,11 +37,11 @@ const Populares = () => {
                 Fecha de Estreno: {popular.release_date}
                 </p>
                 </div>
-                <div className='container-genero'>
+                {/* <div className='container-genero'>
                 <p className='parrafo'>
                 {generos[popular.genre_ids[0]]}
                 </p>
-                </div>
+                </div> */}
                 <div className='container-average'>
                 <p className='parrafo'>
                 {(popular.vote_average).toFixed(0)} ⭐
@@ -42,19 +53,23 @@ const Populares = () => {
                 </p>
                 </div>
                 <div className='container-play'>
-                <button className=" 
+                <button onClick={() => handleVerClick(popular)}
+                className=" 
                 bg-green-400 
                 text-black font-bold 
                 px-4 py-2 
                 border border-green-700 
                 hover:bg-blue-700 
                 focus:bg-blue-700">
-                Ver ▶
+                Abrir ▶
                 </button>
                 </div>
             </div>
         ))
         }
+        {modalOpen && (
+        <MovieModal pelicula={selectedMovie} onClose={() => setModalOpen(false)} />
+        )}
         </div>
     )
 };

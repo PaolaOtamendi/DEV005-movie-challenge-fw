@@ -1,17 +1,30 @@
 import React from 'react';
 import useObtenerPeliculas from '../../Servicios/peticiones';
-import useObtenerGeneros from '../../Servicios/generos';
-
-
+/* import useObtenerGeneros from '../../Servicios/generos'; */
+import { useState } from 'react';
+import MovieModal from '../Movies/Pelicula';
 
 
 const Home = () => {
     const peliculas = useObtenerPeliculas();
     console.log(peliculas, 35);
 
-    const generos = useObtenerGeneros();
-    console.log(generos, 45);
+/*     const generos = useObtenerGeneros();
+    console.log(generos, 45); */
 
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+    const handleVerClick = (pelicula) => {
+        setSelectedMovie(pelicula); // Establecer la película seleccionada
+        setModalOpen(true); // Abrir el modal
+    };
+
+    const handleCloseModal = () => {
+        setSelectedMovie(null); // Limpiar la película seleccionada
+        setModalOpen(false); // Cerrar el modal
+    };
+    
 
     return(
         
@@ -48,7 +61,7 @@ const Home = () => {
                 </p>
                 </div>
                 <div className='container-play'>
-                <button 
+                <button onClick={() => handleVerClick(pelicula)}
                 className=" 
                 bg-green-400 
                 text-black font-bold 
@@ -56,14 +69,16 @@ const Home = () => {
                 border border-green-700 
                 hover:bg-blue-700 
                 focus:bg-blue-700">
-                Ver ▶
+                Abrir ▶
                 </button>
                 </div>
             </div>  
             ))
         }
+        {modalOpen && (
+            <MovieModal pelicula={selectedMovie} onClose={handleCloseModal} />
+            )}
         </div>
-        
     )
 }
 
