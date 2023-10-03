@@ -1,28 +1,44 @@
 import useObtenerPopulares from "../Servicios/populares";
-/* import useObtenerGeneros from "../Servicios/generos"; */
 import MovieModal from "../components/Movies/Pelicula";
 import { useState } from 'react';
+import FilterMovies from "../components/filter/Filtro";
 
 
 const Populares = () => {
-    /* const generos = useObtenerGeneros();
-    console.log(generos, 45) */
 
     const populares = useObtenerPopulares();
     console.log(populares, 55);
 
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const handleVerClick = (popular) => {
         setSelectedMovie(popular); // Establecer la película seleccionada
         setModalOpen(true); // Abrir el modal
     };
 
+    const handleFilter = (searchTerm) => {
+        setSearchTerm(searchTerm);
+    };
+
+    const filteredPeliculas = populares.filter((popular) =>
+    popular.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return(
-        <div className='container-movies flex flex-wrap justify-evenly items-center mt-20'>
-        {
-        populares.map(popular =>(
+        <div style={{ backgroundColor: '#e6e6fa' }}>
+            <FilterMovies onFilterChange={handleFilter} />
+
+        <div className='container-movies 
+        flex flex-wrap 
+        justify-evenly 
+        items-center 
+        mt-40
+        w-full h-full' 
+        style={{ backgroundColor: '#e6e6fa' }}>
+
+        {filteredPeliculas.map(popular =>(
             <div key={popular.id} className="max-w-xs mx-2 my-4">
                 <div className="w-3/4 w-full">
                 <img src={`http://image.tmdb.org/t/p/w300/${popular.poster_path}`} alt={''} />
@@ -37,11 +53,6 @@ const Populares = () => {
                 Fecha de Estreno: {popular.release_date}
                 </p>
                 </div>
-                {/* <div className='container-genero'>
-                <p className='parrafo'>
-                {generos[popular.genre_ids[0]]}
-                </p>
-                </div> */}
                 <div className='container-average'>
                 <p className='parrafo'>
                 {(popular.vote_average).toFixed(0)} ⭐
@@ -71,7 +82,8 @@ const Populares = () => {
         <MovieModal pelicula={selectedMovie} onClose={() => setModalOpen(false)} />
         )}
         </div>
-    )
+        </div>
+    );
 };
 
 export default Populares;

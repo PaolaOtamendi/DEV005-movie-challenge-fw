@@ -17,7 +17,13 @@ const MovieModal = ({ pelicula, onClose }) => {
         <p className='descriptionmovie'>
         Descripción: {pelicula.overview}
         </p>
-        <button onClick={onClose} className="mt-4 bg-purple-500 hover:bg-blue-700 text-black-800 font-bold py-2 px-4 rounded-lg">Cerrar ❌</button>
+        <button onClick={onClose} 
+        className="mt-4 
+        bg-purple-500 
+        hover:bg-blue-700 
+        text-black-800 font-bold 
+        py-2 px-4 
+        rounded-lg">Cerrar ❌</button>
         </div>
         </div>
     );

@@ -1,28 +1,45 @@
 import useObtenerEstrenos from "../Servicios/estrenos";
-/* import useObtenerGeneros from "../Servicios/generos"; */
 import MovieModal from "../components/Movies/Pelicula";
 import { useState } from 'react';
+import FilterMovies from "../components/filter/Filtro";
 
 
 const Estrenos = () => {
-    /* const generos = useObtenerGeneros();
-    console.log(generos, 45) */
 
     const estrenos = useObtenerEstrenos();
     console.log(estrenos, 65);
 
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const handleVerClick = (estreno) => {
         setSelectedMovie(estreno); // Establecer la película seleccionada
         setModalOpen(true); // Abrir el modal
     };
 
+    const handleFilter = (searchTerm) => {
+        setSearchTerm(searchTerm);
+    };
+
+    const filteredPeliculas = estrenos.filter((estreno) =>
+    estreno.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+
     return(
-        <div className='container-movies flex flex-wrap justify-evenly items-center mt-20'>
-        {
-        estrenos.map(estreno =>(
+        <div style={{ backgroundColor: '#e6e6fa' }}>
+            <FilterMovies onFilterChange={handleFilter} />
+
+        <div className='container-movies 
+        flex flex-wrap 
+        justify-evenly 
+        items-center 
+        mt-40
+        w-full h-full' 
+        style={{ backgroundColor: '#e6e6fa' }}>
+        
+        {filteredPeliculas.map(estreno =>(
             <div key={estreno.id} className="max-w-xs mx-2 my-4">
                 <div className="w-3/4 w-full">
                 <img src={`http://image.tmdb.org/t/p/w300/${estreno.poster_path}`} alt={''} />
@@ -37,11 +54,6 @@ const Estrenos = () => {
                 Fecha de Estreno: {estreno.release_date}
                 </p>
                 </div>
-                {/* <div className='container-genero'>
-                <p className='parrafo'>
-                {generos[estreno.genre_ids[0]]}
-                </p>
-                </div> */}
                 <div className='container-average'>
                 <p className='parrafo'>
                 {(estreno.vote_average).toFixed(0)} ⭐
@@ -71,7 +83,8 @@ const Estrenos = () => {
         <MovieModal pelicula={selectedMovie} onClose={() => setModalOpen(false)} />
         )}
         </div>
-    )
-};
+        </div>
+    );
+}
 
 export default Estrenos;
