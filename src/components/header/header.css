@@ -1,15 +1,22 @@
 .containerheader {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     background-color: #5436A9;
     color: #fff;
-    padding: 10px 20px;
+    padding: 10px 10px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+}
+
+.containerlogo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -25,28 +32,14 @@
     margin-left: -20%;
 }
 
-.search {
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
-    outline: none;
-    background-color: #BCA5FF;
-    color: #ededf0;
-    border-radius: 5%; /* Ajusta el margen entre el nombre y el buscador según sea necesario */
-    font-weight: bold;
-}
 
 .containerNavbar {
     display: flex;
     flex-direction: row; /* Cambia la dirección a columna */
     justify-content: space-between;
-    color: #fff;
     text-decoration: none;
     margin-top: 10px; /* Añade margen superior para separar de los elementos anteriores */
-}
-
-.searchname{
-    margin-right: 0px;
+    margin-right: 10%;
 }
 
 .home{
@@ -58,14 +51,6 @@
     font-weight: bold;
 }
 
-.genero{
-    margin: 2%;
-    padding: 4%;
-    color: rgb(0, 0, 0);
-    background-color: #BCA5FF;
-    border-radius: 5%;
-    font-weight: bold;
-}
 
 .populares{
     margin: 2%;
