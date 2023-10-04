@@ -10,7 +10,7 @@
 ## 1. Preámbulo
 
 ¡Link de Vercel - despliegue 🎬!
-[_Cinema Planet_](hdev-005-movie-challenge-auxuh9c1r-paolaotamendi.vercel.app)
+[_Cinema Planet_](https://dev-005-movie-challenge-fw-flame.vercel.app/Home)
 
 La manera en que vemos películas ha cambiado radicalmente durante los últimos
 años debido, en parte, a la aparición de los servicios de
