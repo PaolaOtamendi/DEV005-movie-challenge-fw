@@ -17,7 +17,7 @@ const AppRouter = () => {
             {/* <Route path='/Genero' element={<Genero />} /> */}
             <Route path='/Populares' element={<Populares />} />
 
-            <Route path='/*' element={<Navigate to='/Home' />} /> 
+            {/* <Route path='/*' element={<Navigate to='/Home' />} />  */}
         </Routes>
         </>
     )
