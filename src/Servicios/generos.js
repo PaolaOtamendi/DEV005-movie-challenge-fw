@@ -39,10 +39,3 @@ const useObtenerGeneros = () => {
 };
 
 export default useObtenerGeneros;
-
-{/* <p>Género: {generos[movie.genre_ids[0]]}</p> */}
-/* const generosIdNombre = {};
-for (const key in generosMap) {
-    const genero = generosMap[key];
-    generosIdNombre[genero.id] = genero.name;
-  } */
